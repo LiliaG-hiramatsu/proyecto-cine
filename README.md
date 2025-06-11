@@ -25,9 +25,9 @@ Aplicación web desarrollada en Java con Spring Boot y JPA para la gestión de e
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/cine_garcia.git
-   cd cine_garcia
-  ``
+   git clone https://github.com/LiliaG-hiramatsu/proyecto-cine.git
+   cd proyecto-cine
+  
 
 2. Crear la base de datos en MySQL:
 
