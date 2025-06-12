@@ -10,20 +10,11 @@ import java.util.List;
 
 @Service
 public class CineServiceImpl extends BaseServiceImpl<Cine, Integer> implements CineService {
-    @Autowired
-    private CineRepository cineRepository;
 
-    public CineServiceImpl(BaseRepository<Cine, Integer> baseRepository, CineRepository cineRepository) {
-        super(baseRepository);
+    private final CineRepository cineRepository;
+
+    public CineServiceImpl(CineRepository cineRepository) {
+        super(cineRepository);
         this.cineRepository = cineRepository;
-    }
-
-    public List<Cine> search(String filtro) throws Exception {
-        try {
-            List<Cine> cines = cineRepository.searchNativo(filtro);
-            return cines;
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
     }
 }
