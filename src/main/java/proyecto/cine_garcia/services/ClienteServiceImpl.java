@@ -12,13 +12,4 @@ public class ClienteServiceImpl extends BaseServiceImpl<Cliente, Integer> implem
         super(clienteRepository);
         this.clienteRepository = clienteRepository;
     }
-
-    @Override
-    public Cliente findByEmail(String email) throws Exception {
-        try {
-            return clienteRepository.findByEmail(email);
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
-    }
 }

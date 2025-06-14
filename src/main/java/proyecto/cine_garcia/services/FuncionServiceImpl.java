@@ -14,14 +14,4 @@ public class FuncionServiceImpl extends BaseServiceImpl<Funcion, Integer> implem
         super(funcionRepository);
         this.funcionRepository = funcionRepository;
     }
-
-    @Override
-    public List<Funcion> obtenerFuncionesPorPelicula(Integer id) throws Exception {
-        try {
-            List<Funcion> funciones = funcionRepository.findByPeliculaId(id);
-            return funciones;
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
-    }
 }

@@ -26,9 +26,12 @@ public class Funcion extends Base {
     private Pelicula pelicula;
 
     @OneToMany(
-            mappedBy = "funcion",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private List<Entrada> entradas = new ArrayList<Entrada>();
+
+    @ManyToOne
+    @JoinColumn(name = "sala_id")
+    private Sala sala;
 }

@@ -7,6 +7,4 @@ import java.util.List;
 
 @Repository
 public interface CineRepository extends BaseRepository<Cine, Integer> {
-
-    List<Cine> findByNombreContainingIgnoreCase(String nombre);
 }

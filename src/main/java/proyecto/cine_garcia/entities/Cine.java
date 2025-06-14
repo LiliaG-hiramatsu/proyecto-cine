@@ -37,4 +37,6 @@ public class Cine extends Base {
 
     @ManyToMany(mappedBy = "cines")
     private List<Empleado> empleados = new ArrayList<Empleado>();
+
+
 }

@@ -15,12 +15,4 @@ public class PeliculaServiceImpl extends BaseServiceImpl<Pelicula, Integer> impl
         this.peliculaRepository = peliculaRepository;
     }
 
-
-    public List<Pelicula> findByCine(Integer cine_id) throws Exception {
-        try {
-            return peliculaRepository.findByFuncionesPorCineId((cine_id));
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
-    }
 }

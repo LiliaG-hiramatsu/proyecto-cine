@@ -26,4 +26,8 @@ public class Sala extends Base {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "sala_id")
     private List<Funcion> funciones = new ArrayList<Funcion>();
+
+    @ManyToOne
+    @JoinColumn(name = "cine_id")
+    private Cine cine;
 }

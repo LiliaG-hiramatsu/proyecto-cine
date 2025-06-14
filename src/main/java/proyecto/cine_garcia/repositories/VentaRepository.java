@@ -7,7 +7,4 @@ import java.util.List;
 
 @Repository
 public interface VentaRepository extends BaseRepository<Venta, Integer> {
-
-    List<Venta> findByClienteId(Integer cliente_id);
-    List<Venta> findByCineId(Integer cine_id);
 }

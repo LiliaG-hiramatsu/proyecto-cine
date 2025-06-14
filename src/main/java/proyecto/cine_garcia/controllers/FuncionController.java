@@ -9,14 +9,4 @@ import proyecto.cine_garcia.services.FuncionServiceImpl;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/funciones")
 public class FuncionController extends BaseControllerImpl<Funcion, FuncionServiceImpl> {
-
-    @GetMapping("/pelicula/{id}")
-    public ResponseEntity<?> getFuncionesPorPelicula(@PathVariable Integer id) {
-        try {
-            return ResponseEntity.ok(servicio.obtenerFuncionesPorPelicula(id));
-        } catch (Exception e) {
-            return ResponseEntity.status(404).body("{\"error\":\"No se encontraron funciones para esa película\"}");
-        }
-    }
-
 }

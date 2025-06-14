@@ -7,5 +7,4 @@ import java.util.List;
 
 @Service
 public interface FuncionService extends BaseService<Funcion, Integer> {
-    List<Funcion> obtenerFuncionesPorPelicula(Integer id) throws Exception;
 }

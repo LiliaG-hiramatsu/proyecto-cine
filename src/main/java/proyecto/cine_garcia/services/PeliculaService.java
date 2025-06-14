@@ -7,5 +7,4 @@ import java.util.List;
 
 @Service
 public interface PeliculaService extends BaseService<Pelicula, Integer> {
-    List<Pelicula> findByCine(Integer cine_id) throws Exception;
 }

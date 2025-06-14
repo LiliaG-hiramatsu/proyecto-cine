@@ -21,6 +21,10 @@ public class Pago extends Base {
     @Column(name = "monto")
     private double monto;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_pago")
+    private TipoPago tipo;
+
     @OneToMany(
             mappedBy = "pago",
             cascade = CascadeType.ALL,
