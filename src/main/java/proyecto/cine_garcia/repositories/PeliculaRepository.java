@@ -7,4 +7,5 @@ import java.util.List;
 
 @Repository
 public interface PeliculaRepository extends BaseRepository<Pelicula, Integer> {
+    List<Pelicula> findByCineId(Integer cine_id);
 }

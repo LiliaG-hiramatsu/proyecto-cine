@@ -7,4 +7,5 @@ import java.util.List;
 
 @Repository
 public interface FuncionRepository extends BaseRepository<Funcion, Integer> {
+    List<Funcion> findByPeliculaId(Integer pelicula_id);
 }

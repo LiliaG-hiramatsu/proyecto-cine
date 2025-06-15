@@ -1,5 +1,6 @@
 package proyecto.cine_garcia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,11 +24,21 @@ public class Sala extends Base {
     @Column(name = "capacidad")
     private int capacidad;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "sala_id")
+    @OneToMany(
+            mappedBy = "sala",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JsonIgnore
     private List<Funcion> funciones = new ArrayList<Funcion>();
 
     @ManyToOne
     @JoinColumn(name = "cine_id")
+    @JsonIgnore
     private Cine cine;
+
+    public void addFuncion(Funcion f) {
+        if (funciones == null) funciones = new ArrayList<>();
+        funciones.add(f);
+        f.setSala(this);
+    }
 }

@@ -1,5 +1,6 @@
 package proyecto.cine_garcia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,4 +20,10 @@ public class Entrada extends Base {
     private double precio;
     @Column(name = "asiento")
     private String asiento;
+
+    @ManyToOne
+    @JoinColumn(name = "funcion_id")
+    @JsonIgnore
+    private Funcion funcion;
+
 }

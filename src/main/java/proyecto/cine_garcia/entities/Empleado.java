@@ -1,5 +1,6 @@
 package proyecto.cine_garcia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,11 +24,17 @@ public class Empleado extends Base {
     @Column(name = "dni")
     private int dni;
 
-    @ManyToMany(cascade = CascadeType.REFRESH)
-    @JoinTable(
-            name = "empleado_cine",
-            joinColumns = @JoinColumn(name = "empleado_id"),
-            inverseJoinColumns = @JoinColumn(name = "cine_id")
-    )
+    @ManyToMany(mappedBy = "empleados")
+    @JsonIgnore
     private List<Cine> cines = new ArrayList<Cine>();
+
+    public void addCine(Cine c) {
+        if (!cines.contains(c)) {
+            cines.add(c);
+        }
+        if (!c.getEmpleados().contains(this)) {
+            c.getEmpleados().add(this);
+        }
+    }
+
 }

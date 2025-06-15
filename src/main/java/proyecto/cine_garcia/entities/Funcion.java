@@ -1,5 +1,6 @@
 package proyecto.cine_garcia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,9 +24,11 @@ public class Funcion extends Base {
 
     @ManyToOne
     @JoinColumn(name = "pelicula_id")
+    @JsonIgnore
     private Pelicula pelicula;
 
     @OneToMany(
+            mappedBy = "funcion",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
@@ -33,5 +36,6 @@ public class Funcion extends Base {
 
     @ManyToOne
     @JoinColumn(name = "sala_id")
+    @JsonIgnore
     private Sala sala;
 }
