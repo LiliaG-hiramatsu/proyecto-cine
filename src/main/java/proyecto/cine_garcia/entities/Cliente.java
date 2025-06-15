@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.envers.Audited;
 
-import java.io.Serializable;
-
 @Entity
 @Table(name = "cliente")
 @Getter

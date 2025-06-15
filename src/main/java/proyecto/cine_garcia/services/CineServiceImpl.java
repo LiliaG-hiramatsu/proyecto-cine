@@ -3,27 +3,29 @@ package proyecto.cine_garcia.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import proyecto.cine_garcia.entities.Cine;
+import proyecto.cine_garcia.entities.Pelicula;
 import proyecto.cine_garcia.repositories.BaseRepository;
 import proyecto.cine_garcia.repositories.CineRepository;
+import proyecto.cine_garcia.repositories.PeliculaRepository;
 
 import java.util.List;
 
 @Service
 public class CineServiceImpl extends BaseServiceImpl<Cine, Integer> implements CineService {
+
     @Autowired
     private CineRepository cineRepository;
 
-    public CineServiceImpl(BaseRepository<Cine, Integer> baseRepository, CineRepository cineRepository) {
-        super(baseRepository);
+    @Autowired
+    private PeliculaRepository peliculaRepository;
+
+    public CineServiceImpl(CineRepository cineRepository) {
+        super(cineRepository);
         this.cineRepository = cineRepository;
     }
 
-    public List<Cine> search(String filtro) throws Exception {
-        try {
-            List<Cine> cines = cineRepository.searchNativo(filtro);
-            return cines;
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
+    @Override
+    public List<Pelicula> obtenerPeliculasPorCine(Integer cine_id) {
+        return peliculaRepository.findByCineId(cine_id);
     }
 }
